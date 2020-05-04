@@ -1,4 +1,4 @@
-let Post = (sequelize, DataTypes) => {
+const Post = (sequelize, DataTypes) => {
     return sequelize.define(
         'Post',
         {
@@ -13,24 +13,23 @@ let Post = (sequelize, DataTypes) => {
                 allowNull: false
             },
             img: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(100),
                 allowNull: true
             },
             usuarios_id: {
                 type: DataTypes.INTEGER,
-                foreignKey: true,
-                allowNull: false
+                allowNull: true
             },
             n_likes: {
                 type: DataTypes.INTEGER,
-                allowNull: false
+                allowNull: false,
+                default:0
             }
         },{
             tableName: "posts",
             timestamps: false
         }
-
-    );
+    )
 }
 
 module.exports = Post;

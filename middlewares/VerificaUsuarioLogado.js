@@ -1,12 +1,13 @@
-const VerificaUsuarioLogado = (req,res,next) => {
-    //se session do usuario nao estiver setada, redirciona para login
-    if(!req.session.usuario) {
+const VerificaUsuarioLogado = (req, res, next)=>{
+
+    // Se session do usuário não estiver setada, redireciona para login
+    if(!req.session.usuario){
         res.redirect('/login?error=2');
     }
 
-    // se chegou ate a qui, a session esta ok
+    // Se chegou até aqui, a session está ok... go ahead!
     next();
-
+    
 }
 
 module.exports = VerificaUsuarioLogado;
